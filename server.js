@@ -9,10 +9,19 @@ const mockUserData=[
   app.get('/users', function(req,res){
      res.json({
         success: true,
-        message: 'Requête reussit!',
+        message: 'Requête reussie!',
         users: mockUserData
-     })
-  })
+     });
+  });
+
+  app.get('/users/:id',function(req,res){
+    console.log(req.params.id)
+    res.json({
+      success: true,
+      message: 'get : cette action permet de recuperer le parametre',
+      user: req.params.id
+    });
+  });
 
 
 app.listen(8000,function(){
